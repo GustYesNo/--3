@@ -131,10 +131,9 @@
         { text: "น้ำหนักของคุณเท่าไหร่?", options: ["< 50 กก.", "50-70 กก.", "> 70 กก."], scores: [1, 2, 3], key: "weight" },
         { text: "คุณออกกำลังกายบ่อยแค่ไหน?", options: ["บ่อย", "บางครั้ง", "ไม่เคย"], scores: [1, 2, 3], key: "exercise" },
         { text: "คุณเคยมีอุบัติเหตุที่เข่าหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "injury" },
-        { text: "คุณเคยได้ยินเสียง ลั่น หรือ กรอบแกรบ ในข้อเข่าเวลาขยับหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "sound" },
+        { text: "สมาชิกในครอบครัวเคยมีปัญหาข้อเข่าเสื่อมหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "family" },
         { text: "คุณต้องยืนหรือเดินเป็นเวลานานหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "standing" },
-        { text: "คุณมีอาการปวดเข่าหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "knee_pain" },
-        { text: "คุณรู้สึกว่าข้อเข่าของคุณอุ่นหรือร้อนกว่าปกติหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "warm_knee" }
+        { text: "คุณมีอาการปวดเข่าหรือไม่?", options: ["ใช่", "ไม่"], scores: [3, 1], key: "knee_pain" }
     ];
 
     let answers = {};
@@ -183,8 +182,8 @@
 
         let recommendationText = riskLevel === "ความเสี่ยงน้อย" ? "ดูแลสุขภาพข้อเข่าต่อไป" :
                                  riskLevel === "ความเสี่ยงปานกลาง" ? "ควรเฝ้าระวัง ลดน้ำหนักและออกกำลังกาย" :
-                                 riskLevel === "ความเสี่ยงสูง" ? "แนะนำให้พบแพทย์เพื่อดูแลข้อเข่า ติดต่อศูนย์บริการที่ 8 บางเขน 02-526-4758" :
-                                 "รีบพบแพทย์โดยด่วน ติดต่อศูนย์บริการที่ 8 บางเขน 02-526-4758";
+                                 riskLevel === "ความเสี่ยงสูง" ? "แนะนำให้พบแพทย์เพื่อดูแลข้อเข่า" :
+                                 "ควรรีบพบแพทย์โดยด่วน";
 
         // แสดงผลโดยไม่รวมช้อยส์คำตอบ
         document.getElementById('result').innerHTML = `
@@ -200,7 +199,7 @@
         let name = document.getElementById('name').value;
         let phone = document.getElementById('phone').value;
 
-        fetch("https://script.google.com/macros/s/AKfycbxEFekHrXex8-SG7p6nFTzovCQox05fsyjPwddXSI1LqhohOfWnrI4d5PkO9FvFDTrI/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbwrHuTTg8M-rpVTTQ08phVhJFGN1C2ZR19M1EksBEJuy0AczQJXx1hNd_wzptrqhHY/exec", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
